@@ -1,0 +1,31 @@
+{
+	"code": 200,
+	"data": [
+      {
+        "name": "惠普",
+        "logo": "https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=0ac610a6a218972bb737089887a410ec/78310a55b319ebc46d955a2b8b26cffc1f171696.jpg",
+        "sort": 0
+      },
+      {
+        "name": "阿里巴巴",
+        "logo": "https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=0ac610a6a218972bb737089887a410ec/78310a55b319ebc46d955a2b8b26cffc1f171696.jpg",
+        "sort": 0
+      },
+      {
+        "name": "百度",
+        "logo": "https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=0ac610a6a218972bb737089887a410ec/78310a55b319ebc46d955a2b8b26cffc1f171696.jpg",
+        "sort": 0
+      },
+      {
+        "name": "腾讯",
+        "logo": "https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=0ac610a6a218972bb737089887a410ec/78310a55b319ebc46d955a2b8b26cffc1f171696.jpg",
+        "sort": 0
+      },
+      {
+        "name": "美团",
+        "logo": "https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=0ac610a6a218972bb737089887a410ec/78310a55b319ebc46d955a2b8b26cffc1f171696.jpg",
+        "sort": 0
+      }
+    ],
+	"msg": "success"
+}

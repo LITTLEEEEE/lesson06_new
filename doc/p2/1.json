@@ -1,0 +1,16 @@
+{
+  "code": 200,
+  "data": {
+    "chartData": {
+      "columns": ["type","value"],
+      "rows": [
+        {"type": "总体教学进度", "value": 0.57}
+      ]
+    },
+    "unfinished": 50,
+    "finish": 10,
+    "chartSettings": {
+    }
+  },
+  "msg": "success"
+}
