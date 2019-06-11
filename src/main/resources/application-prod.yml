@@ -1,0 +1,47 @@
+server:
+    port: 8084
+    context-path: / #ContextPath must start with '/' and not end with '/'
+    tomcat:
+      max-threads: 300
+
+druid:
+  url: jdbc:mysql://127.0.0.1:3306/mall2?useUnicode=true&characterEncoding=UTF-8&useSSL=false&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+  username: root
+  password: 123456
+  initial-size: 1
+  min-idle: 1
+  max-active: 20
+  test-on-borrow: true
+
+mybatis:
+  mapper-locations: "classpath*:mapper/**/**/*.xml"
+
+
+mapper:
+  mappers:
+  - tk.mybatis.mapper.common.Mapper
+  not-empty: false
+  identity: MYSQL
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+
+spring:
+  jackson:
+    default-property-inclusion: non_null
+  #http:
+  #  encoding:
+  #    force: true
+  #    charset: UTF-8
+  #    enabled: true
+    multipart:
+      max-file-size: 100Mb
+      max-request-size: 1000Mb
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false

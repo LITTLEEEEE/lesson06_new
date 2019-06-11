@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration>
+
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                %date %-5level %d - %msg%n
+            </pattern>
+        </layout>
+    </appender>
+
+    <appender name="fileInfoLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>DENY</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>
+                %date %-5level [%thread] %logger{43}\(%L\) : %msg
+            </pattern>
+        </encoder>
+        <!--滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--路径-->
+            <fileNamePattern>/working/test/info.%d.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <!--https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx50601fe1a9207d84&redirect_uri=http://gwf.natapp4.cc/sell/weixin/auth&response_type=code&scope=snsapi_userinfo&state=gwf#wechat_redirect-->
+
+    <appender name="fileErrorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--
+            临界值过滤器，过滤掉低于指定临界值的日志。当日志级别等于或高于临界值时，过滤器返回NEUTRAL；当日志级别低于临界值时，日志会被拒绝
+        -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <encoder>
+            <pattern>
+                %date %-5level [%thread] %logger{43}\(%L\) : %msg
+            </pattern>
+        </encoder>
+        <!--滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--路径-->
+            <fileNamePattern>/working/test/error.%d.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <!-- 将日志写入数据库
+    <appender name="DBLog" class="org.rcisoft.core.log.CyDbLogAppender">
+        <connectionSource class="ch.qos.logback.core.db.DataSourceConnectionSource">
+            <dataSource class="org.apache.tomcat.jdbc.pool.DataSource">
+                <driverClassName class="com.mysql.jdbc.Driver" />
+                <url>jdbc:mysql://127.0.0.1:3306/family?characterEncoding=UTF-8</url>
+                <username>root</username>
+                <password>cy</password>
+            </dataSource>
+        </connectionSource>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>info</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+        <insertsql>
+            insert into s_log (business_id, message, log_event,
+            log_status, exception, level,
+            detail, sort, del_flag, flag,create_date,create_by,update_date,update_by)
+            values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+        </insertsql>
+
+        <params>
+            %X{businessId},%X{message},%X{log_event},%X{log_status},%X{exception},%X{level},%X{detail},
+            %X{sort},0,1,%X{createDate},%X{createBy},%X{updateDate},%X{updateBy}
+        </params>
+        <dateformat>yyyy-MM-dd HH:mm:ss</dateformat>
+    </appender>-->
+
+    <!-- 用户操作日志logger
+    <logger name="DBLog" level="INFO" >
+        <appender-ref ref="DBLog"/>
+    </logger> -->
+
+    <!--
+        指定对应包名
+    -->
+    <logger name="com.minlia" level="DEBUG"/>
+    <logger name="org.springframework.data.mybatis" level="DEBUG"/>
+    <logger name="org.springframework.aop.aspectj" level="ERROR"/>
+
+    <springProfile name="dev">
+        <root level="debug">
+            <appender-ref ref="consoleLog" />
+            <appender-ref ref="fileInfoLog" />
+            <appender-ref ref="fileErrorLog" />
+        </root>
+    </springProfile>
+
+    <springProfile name="prod">
+        <root level="info">
+            <appender-ref ref="consoleLog" />
+            <appender-ref ref="fileInfoLog" />
+            <appender-ref ref="fileErrorLog" />
+        </root>
+    </springProfile>
+
+
+
+
+</configuration>
