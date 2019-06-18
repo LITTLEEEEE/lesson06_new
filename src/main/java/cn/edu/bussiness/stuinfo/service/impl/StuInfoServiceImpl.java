@@ -2,7 +2,10 @@ package cn.edu.bussiness.stuinfo.service.impl;
 
 
 import cn.edu.bussiness.stuinfo.dao.StuInfoRepository;
+import cn.edu.bussiness.stuinfo.entity.CompleteRate;
 import cn.edu.bussiness.stuinfo.entity.StuInfo;
+
+import cn.edu.bussiness.stuinfo.model.CompleteRateModel;
 import cn.edu.bussiness.stuinfo.model.TopTenModel;
 import cn.edu.bussiness.stuinfo.service.StuInfoService;
 import lombok.extern.slf4j.Slf4j;
@@ -38,5 +41,19 @@ public class StuInfoServiceImpl implements StuInfoService {
         }
         top.setStudent(res);
         return top;
+    }
+
+    @Override
+    public CompleteRateModel getCompleteRate() {
+        CompleteRate completeRate = stuInfoRepository.getCompleteRate();
+        int finish = completeRate.getCourse_sum()-completeRate.getUnfinish();
+        double value = Double.valueOf(finish)/Double.valueOf(completeRate.getCourse_sum());
+        CompleteRateModel crm = new CompleteRateModel();
+        crm.setFinish(finish);
+        crm.setUnfinished(completeRate.getUnfinish());
+        crm.initchartData(value);
+        crm.setChartSettings("暂无设置");
+        return crm;
+
     }
 }

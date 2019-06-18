@@ -1,6 +1,8 @@
 package cn.edu.bussiness.stuinfo.service;
 
 
+import cn.edu.bussiness.stuinfo.entity.CompleteRate;
+import cn.edu.bussiness.stuinfo.model.CompleteRateModel;
 import cn.edu.bussiness.stuinfo.model.TopTenModel;
 
 public interface StuInfoService {
@@ -10,4 +12,10 @@ public interface StuInfoService {
      * @return
      */
     TopTenModel query();
+
+    /**
+     * 查询课程完成率
+     * @return
+     */
+    CompleteRateModel getCompleteRate();
 }

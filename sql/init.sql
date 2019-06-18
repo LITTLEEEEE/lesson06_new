@@ -57,9 +57,6 @@ CREATE TABLE `stat_student_info`  (
   PRIMARY KEY (`BUSINESS_ID`)
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '课程完结情况表' ROW_FORMAT = Dynamic;
 
-
-
-
 -- ----------------------------
 -- Table structure for stat_course_exam
 -- ----------------------------
@@ -102,15 +99,5 @@ CREATE TABLE `stat_exam_stu_score`  (
   `REMARKS` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`BUSINESS_ID`)
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '实验学生分数' ROW_FORMAT = Dynamic;
-
-
-
-
-
-
-
-
-
-
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
 
+/**
+ * json1、2
+ */
 @RestController
 @RequestMapping("/stuinfo")
 public class StuInfoController {
@@ -34,5 +37,12 @@ public class StuInfoController {
         return result;
     }
 
-
+    /**
+     * 课程完成率
+     */
+    @RequestMapping("/rate")
+    public Result getCompleteRate(Result result){
+        result.setSucessMessage("success",stuInfoServiceImpl.getCompleteRate());
+        return result;
+    }
 }
