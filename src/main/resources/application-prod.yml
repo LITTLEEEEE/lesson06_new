@@ -5,7 +5,7 @@ server:
       max-threads: 300
 
 druid:
-  url: jdbc:mysql://127.0.0.1:3306/mall2?useUnicode=true&characterEncoding=UTF-8&useSSL=false&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+  url: jdbc:mysql://127.0.0.1:3306/edu?useUnicode=true&characterEncoding=UTF-8&useSSL=false&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
   username: root
   password: 123456
   initial-size: 1

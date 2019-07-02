@@ -2,9 +2,12 @@ package cn.edu.bussiness.stuinfo.dao;
 
 import cn.edu.bussiness.stuinfo.entity.CompleteRate;
 import cn.edu.bussiness.stuinfo.entity.StuInfo;
+import cn.edu.bussiness.stuinfo.entity.TeacherInfo;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
+
+import java.util.List;
 
 @Repository
 public interface StuInfoRepository extends Mapper<StuInfo> {
@@ -28,5 +31,10 @@ public interface StuInfoRepository extends Mapper<StuInfo> {
             "AND s.`STATUS` = '0'")
     public CompleteRate getCompleteRate();
 
+    @Select("select * from stat_teacher_info where to_days(TODAY) = to_days(now())ORDER BY COUNT_OPERATE desc LIMIT 10 ")
+    public List<TeacherInfo> getteacher();
+
+    @Select("select * from stat_student_info where to_days(TODAY) = to_days(now())ORDER BY COUNT_OPERATE desc LIMIT 10 ")
+    public List<StuInfo> getstudent();
 
 }

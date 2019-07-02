@@ -1,6 +1,5 @@
 package cn.edu.bussiness.labstu.service.impl;
 
-import cn.edu.bussiness.labstu.dao.labstuRepository;
 import cn.edu.bussiness.labstu.entity.labstu;
 import cn.edu.bussiness.labstu.model.labstuModel;
 import cn.edu.bussiness.labstu.service.labstuService;
@@ -17,7 +16,7 @@ import java.util.Map;
 @Service
 public class labstuServiceImpl implements labstuService {
     @Autowired
-    labstuRepository labstuRepository;
+    cn.edu.bussiness.labstu.dao.labstuRepository labstuRepository;
 
     @Override
     public labstuModel getlabstuModel() {
@@ -29,14 +28,14 @@ public class labstuServiceImpl implements labstuService {
             String coursename=null;
             //-----private Map<String,List<course>> maps;---for循环获取List<course>---------------
 
-            for(labstu labstu : labstus){
+            for(cn.edu.bussiness.labstu.entity.labstu labstu : labstus){
                 SimpleDateFormat sformat = new SimpleDateFormat();
                 Date cdate = labstu.getToday();
-                sformat.applyPattern("MM");
+                sformat.applyPattern("M");
                 String date = sformat.format(cdate)+"/";
-                sformat.applyPattern("dd");
+                sformat.applyPattern("d");
                 date+=sformat.format(cdate);
-                labstuModel.course course = new labstuModel().new course(date,labstu.getStu_count(),labstu.getScore());
+                labstuModel.course course = new labstuModel().new course(date,labstu.getScore(),labstu.getStu_count());
                 courses.add(course);
                 coursename = labstu.getCourse_name();
             }

@@ -3,6 +3,7 @@ package cn.edu.bussiness.Experimental.controller;
 import cn.edu.bussiness.Experimental.service.impl.ExperimentalServiceImpl;
 import cn.edu.core.model.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ExperimentalController {
     @Autowired
     private ExperimentalServiceImpl experimentalService;
-
+    @CrossOrigin
     @RequestMapping("getreview")
     public Result getRate(Result result){
         result.setSucessMessage("success",experimentalService.getexper());

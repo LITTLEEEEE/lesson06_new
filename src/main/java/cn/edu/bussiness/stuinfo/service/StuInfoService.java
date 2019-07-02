@@ -1,7 +1,6 @@
 package cn.edu.bussiness.stuinfo.service;
 
 
-import cn.edu.bussiness.stuinfo.entity.CompleteRate;
 import cn.edu.bussiness.stuinfo.model.CompleteRateModel;
 import cn.edu.bussiness.stuinfo.model.TopTenModel;
 

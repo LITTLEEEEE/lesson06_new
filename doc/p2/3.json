@@ -4,8 +4,8 @@
     "teacher":[{"idNum":"121313","name":"张三","onlineTime":"12","activeValue":"12"},{"idNum":"121313","name":"张三","onlineTime":"12","activeValue":"12"},{"idNum":"121313","name":"张三","onlineTime":"12","activeValue":"12"},{"idNum":"121313","name":"张三","onlineTime":"12","activeValue":"12"},{"idNum":"121313","name":"张三","onlineTime":"12","activeValue":"12"}],
     "teacherColumns":[
       {
-        "title": "编号",
-        "key": "idNum"
+      "title": "编号",
+      "key": "idNum"
       },
       {
         "title": "姓名",

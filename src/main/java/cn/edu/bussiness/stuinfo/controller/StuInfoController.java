@@ -1,12 +1,13 @@
 package cn.edu.bussiness.stuinfo.controller;
 
-import cn.edu.core.model.Result;
-import cn.edu.bussiness.stuinfo.service.StuInfoService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+        import cn.edu.bussiness.stuinfo.service.StuInfoService;
+        import cn.edu.core.model.Result;
+        import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.web.bind.annotation.CrossOrigin;
+        import org.springframework.web.bind.annotation.RequestMapping;
+        import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
+        import java.util.Arrays;
 
 /**
  * json1、2
@@ -18,7 +19,7 @@ public class StuInfoController {
     @Autowired
     private StuInfoService stuInfoServiceImpl;
 
-
+    @CrossOrigin
     @RequestMapping("/hello")
     public Result hello(Result result){
         int[] k = new int[]{3};
@@ -31,6 +32,7 @@ public class StuInfoController {
      * @param result
      * @return
      */
+    @CrossOrigin
     @RequestMapping("/query")
     public Result query(Result result){
         result.setSucessMessage("",stuInfoServiceImpl.query());
@@ -40,6 +42,7 @@ public class StuInfoController {
     /**
      * 课程完成率
      */
+    @CrossOrigin
     @RequestMapping("/rate")
     public Result getCompleteRate(Result result){
         result.setSucessMessage("success",stuInfoServiceImpl.getCompleteRate());

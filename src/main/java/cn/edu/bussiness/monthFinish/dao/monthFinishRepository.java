@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface monthFinishRepository {
 
-    @Select("select * from stat_course_ending")
+    @Select("select * from stat_course_ending ORDER BY `MONTH` limit 6")
     List<monthFinish> getmonthFinish();
 
 }

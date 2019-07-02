@@ -3,7 +3,6 @@ package cn.edu.bussiness.labstu.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Repository;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

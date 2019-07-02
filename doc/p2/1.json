@@ -7,6 +7,13 @@
         {"type": "总体教学进度", "value": 0.57}
       ]
     },
+    "chartData1": {
+      "columns": ["类别","数量"],
+      "rows": [
+        {"类别": "未完结","数量": 50},
+        {"类别": "已完结","数量": 10}
+      ]
+    },
     "unfinished": 50,
     "finish": 10,
     "chartSettings": {

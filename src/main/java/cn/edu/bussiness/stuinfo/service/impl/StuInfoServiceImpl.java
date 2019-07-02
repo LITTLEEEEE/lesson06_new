@@ -4,7 +4,7 @@ package cn.edu.bussiness.stuinfo.service.impl;
 import cn.edu.bussiness.stuinfo.dao.StuInfoRepository;
 import cn.edu.bussiness.stuinfo.entity.CompleteRate;
 import cn.edu.bussiness.stuinfo.entity.StuInfo;
-
+import cn.edu.bussiness.stuinfo.entity.TeacherInfo;
 import cn.edu.bussiness.stuinfo.model.CompleteRateModel;
 import cn.edu.bussiness.stuinfo.model.TopTenModel;
 import cn.edu.bussiness.stuinfo.service.StuInfoService;
@@ -27,19 +27,27 @@ public class StuInfoServiceImpl implements StuInfoService {
 
     @Override
     public TopTenModel query() {
-        List<StuInfo> stuList = stuInfoRepository.selectAll();
+        List<StuInfo> stuList = stuInfoRepository.getstudent();
+        List<TeacherInfo> teaList = stuInfoRepository.getteacher();
         TopTenModel top = new TopTenModel();
         top.initColumn();
-        top.setTeacher(new ArrayList<>());
-        List<TopTenModel.Info> res = new ArrayList<>();
-        log.info("stu size is"  + stuList.size());
+
+        List<TopTenModel.Info> stures = new ArrayList<>();
+        List<TopTenModel.Info> teares = new ArrayList<>();
         for (StuInfo stu :
                 stuList) {
             TopTenModel.Info info = new TopTenModel().new Info();
-            info.setData(stu.getCode(),stu.getName(),stu.getCountOnline() + "",stu.getCountOperate() + "");
-            res.add(info);
+            info.setData(stu.getCode(),stu.getName(),stu.getCount_online() + "",stu.getCount_operate() + "");
+            stures.add(info);
         }
-        top.setStudent(res);
+        for (TeacherInfo tea :
+                teaList) {
+            TopTenModel.Info info = new TopTenModel().new Info();
+            info.setData(tea.getCode(),tea.getName(),tea.getCount_online() + "",tea.getCount_operate() + "");
+            teares.add(info);
+        }
+        top.setTeacher(teares);
+        top.setStudent(stures);
         return top;
     }
 
@@ -51,7 +59,7 @@ public class StuInfoServiceImpl implements StuInfoService {
         CompleteRateModel crm = new CompleteRateModel();
         crm.setFinish(finish);
         crm.setUnfinished(completeRate.getUnfinish());
-        crm.initchartData(value);
+        crm.initchartData(value,completeRate.getUnfinish(),finish);
         crm.setChartSettings("暂无设置");
         return crm;
 

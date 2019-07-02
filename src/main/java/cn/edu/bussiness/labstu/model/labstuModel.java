@@ -45,7 +45,9 @@ public class labstuModel {
         this.chartSettings = new chartSettings(dimension,metrics);
         //初始化chartData
         List<String> columns = new ArrayList<>();
-        columns.add("日期");columns.add("人数");columns.add("分数");
+        columns.add("日期");
+        columns.add("分数");
+        columns.add("人数");
         this.chartData = new chartData(columns,rows);
     }
     @Data
@@ -60,8 +62,9 @@ public class labstuModel {
     @AllArgsConstructor
     public class course {
         private String 日期;
-        private int 人数;
         private float 分数;
+        private int 人数;
+
     }
     @Data
     @AllArgsConstructor

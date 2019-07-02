@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface ExperimentalRepository {
 
-    @Select("select * from stat_exam_score ")
+    @Select("select * from stat_exam_score order by TODAY ")
     List<experimental> getexper();
 
 

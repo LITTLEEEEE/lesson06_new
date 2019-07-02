@@ -33,6 +33,6 @@ public class StuInfo {
     private int businessId;
     private Date today;
     private String name,code,remarks;
-    private int countOperate,countOnline;
+    private int count_operate,count_online;
 
 }

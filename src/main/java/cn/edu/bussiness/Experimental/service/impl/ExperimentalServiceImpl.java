@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,12 @@ public class ExperimentalServiceImpl implements ExperimentalService {
         for(experimental exp :
                 experimentalList){
             Date date = exp.getToday();
-            String time = date.getDay()+"/"+date.getMonth();
+            SimpleDateFormat sformat = new SimpleDateFormat();
+            sformat.applyPattern("MM");
+            String month = sformat.format(date);
+            sformat.applyPattern("dd");
+            String day = sformat.format(date);
+            String time = month+"/"+day;
             float intel = exp.getExam_intelligent();
             float manual = exp.getExam_manual();
             int count = exp.getExam_count();

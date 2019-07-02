@@ -67,8 +67,13 @@ public class TopTenModel {
         cols.add(new Column("姓名", "name"));
         cols.add(new Column("活跃值", "activeValue"));
         cols.add(new Column("在线时长", "onlineTime"));
+        List<Column> teacol = new ArrayList<Column>();
+        teacol.add(new Column("工号", "idNum"));
+        teacol.add(new Column("姓名", "name"));
+        teacol.add(new Column("活跃值", "activeValue"));
+        teacol.add(new Column("在线时长", "onlineTime"));
         this.studentColumns = cols;
-        this.teacherColumns = cols;
+        this.teacherColumns = teacol;
     }
 
     /*{
